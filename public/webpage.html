@@ -22,8 +22,10 @@ The number will show if it is cached or not.
         .then(text => {
             targetElement.innerHTML = text;
 
-            console.log(text)
+            console.log(text);
         }).catch(error => {
+            console.log("Failed to fetch");
+            console.log(error);
             targetElement.innerHTML = "failed to load";
         }
     );
