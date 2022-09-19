@@ -16,6 +16,9 @@ var path = require('path');
 
 var cors = require('cors')
 
+// enabling CORS for any origin
+app.use(cors());
+
 // log requests
 app.use(logger('dev'));
 
