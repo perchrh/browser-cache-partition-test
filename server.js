@@ -23,10 +23,10 @@ app.use(cors());
 app.use(logger('dev'));
 
 
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.set("Cache-Control", "private, immutable, max-age=3600")
     res.set("Content-Type", "text/plain")
-    const randomNumber = Math.floor((Math.random() + Math.floor(Math.random()*9)+1) * Math.pow(10, 8))
+    const randomNumber = Math.floor((Math.random() + Math.floor(Math.random() * 9) + 1) * Math.pow(10, 8))
     res.send('Hello cache partition test: ' + randomNumber);
 });
 
@@ -42,4 +42,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.listen(PORT);
-console.log('listening on http://localhost:'+PORT);
+console.log('listening on http://localhost:' + PORT);

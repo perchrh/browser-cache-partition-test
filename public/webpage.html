@@ -17,11 +17,14 @@ The number will show if it is cached or not.
     var targetElement = document.getElementById("fetchresult");
     targetElement.innerHTML = "Loading...";
 
-    fetch('https://cache-partition-test-source.herokuapp.com/')
+    // By default, fetch requests make use of standard HTTP-caching
+    fetch('https://cache-partition-test-source.herokuapp.com/', {
+        cache: "force-cache" // will use cache item if at all possible and fetch new if nothing in cache
+    })
         .then(response => response.text())
         .then(text => {
             targetElement.innerHTML = text;
-
+            console.log("Successfully fetched")
             console.log(text);
         }).catch(error => {
             console.log("Failed to fetch");
