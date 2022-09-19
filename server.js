@@ -21,7 +21,7 @@ app.use(logger('dev'));
 
 
 app.get('/', function(req, res){
-    res.set("Cache-Control", "private, immutable, maxAge=3600")
+    res.set("Cache-Control", "private, immutable, max-age=3600")
     res.set("Content-Type", "text/plain")
     const randomNumber = Math.floor((Math.random() + Math.floor(Math.random()*9)+1) * Math.pow(10, 8))
     res.send('Hello cache partition test: ' + randomNumber);
