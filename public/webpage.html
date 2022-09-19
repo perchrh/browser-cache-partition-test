@@ -9,8 +9,26 @@
 Does a fetch of a remote resource that should be cached.
 The number will show if it is cached or not.
 
-<hr/>
+<div id="fetchresult">Number not loaded yet</div>
 
+<hr/>
+<script>
+    console.log("Running script...")
+    var targetElement = document.getElementById("fetchresult");
+    targetElement.innerHTML = "Loading...";
+
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => response.text())
+        .then(text => {
+            targetElement.innerHTML = text;
+
+            console.log(text)
+        }).catch(error => {
+            targetElement.innerHTML = "failed to load";
+        }
+    );
+    console.log("Finished running script...")
+</script>
 
 
 </body>
