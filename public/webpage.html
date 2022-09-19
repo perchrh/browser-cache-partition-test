@@ -17,7 +17,7 @@ The number will show if it is cached or not.
     var targetElement = document.getElementById("fetchresult");
     targetElement.innerHTML = "Loading...";
 
-    fetch('https://jsonplaceholder.typicode.com/posts/1')
+    fetch('https://cache-partition-test-source.herokuapp.com/')
         .then(response => response.text())
         .then(text => {
             targetElement.innerHTML = text;
