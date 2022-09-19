@@ -6,16 +6,19 @@
 
 const express = require('express')
 var app = express();
+app.set('etag', false); // turn off
 
 var logger = require('morgan');
 var path = require('path');
+
+var cors = require('cors')
 
 // log requests
 app.use(logger('dev'));
 
 
 app.get('/', function(req, res){
-    res.set("Cache-Control", "private, immutable maxAge=3600")
+    res.set("Cache-Control", "private,immutable,maxAge=3600")
     const randomNumber = Math.floor((Math.random() + Math.floor(Math.random()*9)+1) * Math.pow(10, 8))
     res.send('Hello cache partition test: ' + randomNumber);
 });
