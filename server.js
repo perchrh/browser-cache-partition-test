@@ -4,6 +4,9 @@
  * Module dependencies.
  */
 
+const PORT = process.env.PORT || 8080;
+
+
 const express = require('express')
 var app = express();
 app.set('etag', false); // turn off
@@ -34,5 +37,5 @@ app.get('/', function(req, res){
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.listen(3000);
-console.log('listening on http://localhost:3000');
+app.listen(PORT);
+console.log('listening on http://localhost:'+PORT);
